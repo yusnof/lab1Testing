@@ -47,6 +47,24 @@ class SetTest {
 
     @org.junit.jupiter.api.Test
     void member() {
+        //adding and then ch. if member
+        Set s = new Set();
+        s.insert(6);
+        s.insert(4);
+        s.insert(3);
+        assertTrue(s.member(6));
+        assertTrue(s.member(4));
+        assertFalse(s.member(10));
+
+        //looking at an empty set
+        Set s1 = new Set();
+        assertFalse(s1.member(2));
+
+        //adding two elements and then extract
+        Set s2 = new Set();
+        s.insert(2);s.insert(2); 
+        assertTrue(s2.member(2));
+
     }
 
     @org.junit.jupiter.api.Test
