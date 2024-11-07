@@ -29,6 +29,10 @@ public class Set {
     }
     a.add(x);
   }
+  public ArrayList<Integer> getArrayList()
+  {
+    return a;
+  }
 
   public boolean member(int x) {
     for (int i = 0; i < a.size(); i++) {
