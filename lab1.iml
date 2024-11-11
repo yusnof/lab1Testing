@@ -39,7 +39,10 @@
           <root url="jar://$MODULE_DIR$/WorkSchedule.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/WorkSchedule.jar!/" />
+          <root url="jar://$MODULE_DIR$/WorkSchedule.jar!/" />
+        </SOURCES>
       </library>
     </orderEntry>
   </component>
