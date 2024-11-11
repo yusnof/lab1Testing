@@ -10,6 +10,16 @@ class SetTest {
 
     @Test
     void toArray() {
+        Set s = new Set();
+        s.insert(0);
+        s.insert(1);
+        s.insert(2);
+        int[] expected = new int[3];
+        expected[0] = 0;
+        expected[1] = 1;
+        expected[2] = 2;
+        int[] result = s.toArray();
+        assertEquals(expected[0], result[0]);
     }
 
     @Test
@@ -40,13 +50,14 @@ class SetTest {
         s.insert(x);
         s.insert(x);
         int[] expected = new int[1];
+        int[] result = s.toArray();
         expected[0] = 5;
-        assertEquals(expected[0], s.toArray());
+        assertEquals(expected[0], result[0]);
     }
 
 
 
-    @org.junit.jupiter.api.Test
+    @Test
     void member() {
         //adding and then ch. if member
         Set s = new Set();
@@ -68,11 +79,42 @@ class SetTest {
         assertTrue(s2.member(2));
     }
 
-    @org.junit.jupiter.api.Test
-    void intersect() {
+    @Test
+    void intersectBranch() {
+        Set s1 = new Set();
+        Set s2 = new Set();
+
+        s1.insert(0);
+        s1.insert(1);
+        s1.insert(2);
+
+        s2.insert(0);
+        s2.insert(1);
+
+        s1.intersect(s2);
+        //Assert that 0, 1 is a member of s1
+        assertTrue(s1.member(0) && s1.member(1) && !s1.member(2));
+
+        //intersect two empty sets
+        Set s3 = new Set();
+        Set s4 = new Set();
+        s3.intersect(s4);
+        assertFalse(s3.member(0) && s4.member(0));
+
+        //intersect without overlaping elements
+        Set s5 = new Set();
+        Set s6 = new Set();
+        s5.insert(0);
+        s5.insert(1);
+        s5.insert(2);
+        s6.insert(2);
+        s6.insert(3);
+        s6.insert(4);
+        s5.intersect(s6);
+        assertFalse(s5.member(0));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void distinctClosed() {
         // coverage
         Set s = new Set();
