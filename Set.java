@@ -17,17 +17,25 @@ public class Set {
   }
 
   public void insert(int x) {
+    if (a.isEmpty())
+    {
+      a.add(x);
+      return;
+    }
     for (int i = 0; i < a.size(); i++) {
       if (a.get(i) > x) {
         a.add(i, x);
         break;
-      } else {
-        if (a.get(i) == x) {
+      } else if (a.get(i) < x)
+      {
+        a.add(x);
+        break;
+      }
+      if (a.get(i) == x) {
           break;
         }
-      }
+
     }
-    a.add(x);
   }
   public ArrayList<Integer> getArrayList()
   {
@@ -68,11 +76,12 @@ public class Set {
   //   (a, b) -> a - b;
   public boolean distinctClosed(IntBinaryOperator f) {
     int vi,vj;
+
     for (int i = 0; i < a.size(); i++) {
-      for (int j = i; j < a.size(); j++) {
+      for (int j = 0; j < a.size(); j++) {
         vi = a.get(i);
         vj = a.get(j);
-        if (!(member(f.applyAsInt(vi, vj)) || vi == vj)) return false;
+        if (i != j && !(member(f.applyAsInt(vi, vj)) || vi == vj)) return false;
       }
     }
     return true;
