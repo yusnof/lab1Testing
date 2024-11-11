@@ -72,7 +72,7 @@ class SetTest {
         Set s1 = new Set();
         assertFalse(s1.member(2));
 
-        //adding two elements and then extract
+        //adding two elements and then look for memeber.
         Set s2 = new Set();
         s2.insert(3);
         s2.insert(2);
@@ -112,6 +112,26 @@ class SetTest {
         s6.insert(4);
         s5.intersect(s6);
         assertFalse(s5.member(0));
+    }
+    @Test
+    void intersectStatement() {
+        Set s1 = new Set();
+        Set s2 = new Set();
+        assertEquals(s1.member(2), s2.member(2));
+        s1.intersect(s2);
+        assertEquals(s1.member(2), s2.member(2));
+
+        //Inside for loop
+        s1.insert(0);
+        s1.insert(1);
+        s1.insert(3);
+
+        s2.insert(0);
+        s2.insert(1);
+        s2.insert(4);
+
+        s1.intersect(s2);
+        assertEquals(s1.member(0), s1.member(1));
     }
 
     @Test
