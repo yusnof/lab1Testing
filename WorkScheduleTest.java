@@ -21,4 +21,9 @@ public class WorkScheduleTest {
 
         assertEquals(nEmployees, EmployeeRes);
     }
+    @Test
+    void constractorTest(){
+
+    }
+
 }
