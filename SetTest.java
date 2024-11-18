@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.function.IntBinaryOperator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,26 +22,56 @@ class SetTest {
     }
 
     @Test
-    void insert() {
+    void insertAndCompareToArray() {
+        // statement coverage
+        Set s = new Set();
+        ArrayList<Integer> expect = new ArrayList<>();
+        s.insert(1);
+        expect.add(1);
+        assertTrue(s.getArrayList().equals(expect) );}
+    @Test
+    void insertAndCompareToArray2() {
         // statement coverage
         Set s = new Set();
         ArrayList<Integer> expect = new ArrayList<>();
         s.insert(1);
         expect.add(1);
 
-        assertTrue(s.getArrayList().equals(expect));
+        s.insert(0);
+        s.insert(2);
+        expect.add(2);
+
+        assertFalse(s.getArrayList().equals(expect));
+    }
+    @Test
+    void insertAndComapareToArray(){
+        Set s = new Set();
+        ArrayList<Integer> expect = new ArrayList<>();
+        s.insert(1);
+        expect.add(1);
+
+
         s.insert(0);
         expect.add(0,0);
         System.out.println(Arrays.toString( s.getArrayList().toArray())  + " " + Arrays.toString(expect.toArray()));
 
         assertTrue(s.getArrayList().equals(expect));
+    }
+    @Test
+    void insert2(){
+        Set s = new Set();
+        ArrayList<Integer> expect = new ArrayList<>();
+        s.insert(1);
+        expect.add(1);
+
+
         s.insert(0);
         s.insert(2);
         expect.add(2);
 
         assertTrue(s.getArrayList().equals(expect));
-        // DONE
     }
+
     @Test
     void insertBranchCoverage() {
         Set s = new Set();
@@ -55,23 +84,23 @@ class SetTest {
         assertEquals(expected[0], result[0]);
     }
 
-
-
     @Test
-    void member() {
+    void memberIfCorrect() {
         //adding and then ch. if member
         Set s = new Set();
         s.insert(6);
         s.insert(4);
         s.insert(3);
-        assertTrue(s.member(6));
-        assertTrue(s.member(4));
-        assertFalse(s.member(10));
-
+        assertTrue(s.member(6) && s.member(4) && !s.member(10));
+    }
+    @Test
+    void memberIfEmpty() {
         //looking at an empty set
         Set s1 = new Set();
         assertFalse(s1.member(2));
-
+    }
+    @Test
+    void memberIfsecond() {
         //adding two elements and then look for memeber.
         Set s2 = new Set();
         s2.insert(3);
