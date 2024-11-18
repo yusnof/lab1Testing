@@ -149,7 +149,6 @@ class SetTest {
         assertEquals(s1.member(2), s2.member(2));
         s1.intersect(s2);
         assertEquals(s1.member(2), s2.member(2));
-
         //Inside for loop
         s1.insert(0);
         s1.insert(1);
@@ -181,3 +180,8 @@ class SetTest {
 
     }
 }
+
+
+//
+//
+//

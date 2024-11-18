@@ -21,9 +21,16 @@ public class WorkScheduleTest {
 
         assertEquals(nEmployees, EmployeeRes);
     }
+
+    //B)
+    //inputspace:
+
     @Test
-    void constractorTest(){
+
+    public void nextIncomplete()
+    {
 
     }
+
 
 }

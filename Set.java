@@ -76,7 +76,6 @@ public class Set {
   //   (a, b) -> a - b;
   public boolean distinctClosed(IntBinaryOperator f) {
     int vi,vj;
-
     for (int i = 0; i < a.size(); i++) {
       for (int j = 0; j < a.size(); j++) {
         vi = a.get(i);
