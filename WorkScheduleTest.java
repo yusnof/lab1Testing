@@ -1,8 +1,4 @@
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
@@ -13,7 +9,7 @@ public class WorkScheduleTest {
     //Partition 3: starttime > endtime && workingEmployee.length > nemployees
     //Partition 4: starttime > endtime && workingEmployee.length < nemployees
 
-    // border edge case when the nemployees == 0.
+    // border case when the nemployees == 0.
 
     //bug:
     @Test
