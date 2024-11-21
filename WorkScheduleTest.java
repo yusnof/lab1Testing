@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Array;
@@ -12,7 +13,9 @@ public class WorkScheduleTest {
     //Partition 3: starttime > endtime && workingEmployee.length > nemployees
     //Partition 4: starttime > endtime && workingEmployee.length < nemployees
 
-    // edge case when the nemployees == 0.
+    // border edge case when the nemployees == 0.
+
+    //bug:
     @Test
     void setRequiredTestPartition1(){
         WorkSchedule ws = new WorkSchedule(10);
@@ -107,9 +110,15 @@ ensures:
 
 
     @Test
-
-    public void nextIncomplete()
+    public void nextIncompletePartition1()
     {
+        WorkSchedule ws = new WorkSchedule(10);
+        ws.setRequiredNumber(1,0,1);
+
+        int expected =  ws.nextIncomplete(3);
+
+        assertEquals(expected, -1);
+
 
     }
     @Test
