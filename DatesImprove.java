@@ -9,9 +9,6 @@ public class DatesImprove {
         if ((month == 4) ||(month == 9) ||  (month == 6) || (month == 11)) {
             return 30;
         }
-        if(month == 2){
-            return 28;
-        }
         else return 31;
     }
     public static void main (String[] args) {
@@ -30,13 +27,16 @@ public class DatesImprove {
         int someDayInYear = 0;
         int laterDayInYear = 0;
 
-        for (aMonth = 0; aMonth < someMonth; aMonth = aMonth + 1) {
-            someDayInYear = someDayInYear + daysInMonth(aMonth);
+        //start from 1 and not 0
+        for (aMonth = 1; aMonth < someMonth; aMonth = aMonth + 1) {
+            someDayInYear += daysInMonth(aMonth);
         }
+        someDayInYear += someDay;
 
-        for (; aMonth < laterMonth; aMonth = aMonth + 1) {
-            laterDayInYear = laterDayInYear + daysInMonth(aMonth);
+        for (aMonth = 1; aMonth < laterMonth; aMonth = aMonth + 1) {
+            laterDayInYear += daysInMonth(aMonth);
         }
+        laterDayInYear += laterDay;
 
         /* The answer */
         int daysBetween = 0;
@@ -44,7 +44,7 @@ public class DatesImprove {
                 someMonth + "/" + someDay + " and " +
                 laterMonth + "/" + laterDay + " is: ");
         daysBetween = laterDayInYear - someDayInYear;
-        daysBetween = daysBetween + laterDay - someDay;
+
         System.out.println(daysBetween);
     }
 }
