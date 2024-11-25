@@ -1,4 +1,4 @@
-Instert:
+Insert:
 bug invalid case for a is empty
 
 bug for case size less than x
