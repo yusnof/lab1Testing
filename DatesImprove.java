@@ -4,7 +4,7 @@ public class DatesImprove {
     /* Postcondition: returns the number of days in the given month */
 
 
-    //added a condition for month 2 and then corrected the month accordigly
+    //bug fixed correct months to return the days expected
     public static int daysInMonth (int month) {
         if ((month == 4) ||(month == 9) ||  (month == 6) || (month == 11)) {
             return 30;
@@ -15,7 +15,7 @@ public class DatesImprove {
         int someMonth, someDay;
         int laterMonth, laterDay;
 
-        int aMonth;
+        //int aMonth; Why declare it here? Useless and bad code
         someMonth = Integer.parseInt(args[0]);
         someDay = Integer.parseInt(args[1]);
 
@@ -28,12 +28,12 @@ public class DatesImprove {
         int laterDayInYear = 0;
 
         //start from 1 and not 0
-        for (aMonth = 1; aMonth < someMonth; aMonth = aMonth + 1) {
+        for (int aMonth = 1; aMonth < someMonth; aMonth = aMonth + 1) {
             someDayInYear += daysInMonth(aMonth);
         }
         someDayInYear += someDay;
 
-        for (aMonth = 1; aMonth < laterMonth; aMonth = aMonth + 1) {
+        for (int aMonth = 1; aMonth < laterMonth; aMonth = aMonth + 1) {
             laterDayInYear += daysInMonth(aMonth);
         }
         laterDayInYear += laterDay;
