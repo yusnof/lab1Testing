@@ -9,6 +9,7 @@ public class WorkScheduleTest {
     //Partition 4: starttime > endtime && workingEmployee.length < nemployees
 
     // border case when the nemployees == 0.
+    // border case when the start, end -time == 0.
 
     //bug: decrementing the required number of employees will break the method
     @Test
@@ -62,8 +63,17 @@ public class WorkScheduleTest {
         WorkSchedule ws = new WorkSchedule(10);
         ws.setRequiredNumber(0,1,3);
         WorkSchedule.Hour hour = ws.readSchedule(2);
-        //TODO add asserting
+        assertSame(0,hour.workingEmployees.length);
+
+        ws = new WorkSchedule(10);
+        WorkSchedule.Hour expected = ws.readSchedule(0);
+        ws.setRequiredNumber(1,0,0);
+        ws.addWorkingPeriod("je",0,0);
+        ws.addWorkingPeriod("ja",0,0);
+        WorkSchedule.Hour result = ws.readSchedule(0);
+        assertSame(expected, result);
     }
+
 
     // the bug in program is: lower the setRequiredNumber, will breake the method which wrong it should be the updated number of requiredNumber
     @Test
@@ -139,7 +149,6 @@ public class WorkScheduleTest {
     @Test
     public void nextIncompleteBorderCase2(){
         WorkSchedule ws = new WorkSchedule(10);
-        ws.setRequiredNumber(1,0,1);
         ws.setRequiredNumber(2,0,9);
         ws.addWorkingPeriod("je",0,9);
         ws.addWorkingPeriod("ja",0,9);
@@ -147,71 +156,14 @@ public class WorkScheduleTest {
         assertEquals(working,-1);
 
          ws = new WorkSchedule(10);
-        ws.setRequiredNumber(1,0,1);
         ws.setRequiredNumber(2,0,9);
         ws.addWorkingPeriod("je",0,9);
         ws.addWorkingPeriod("ja",0,9);
          working = ws.nextIncomplete(0);
         assertEquals(working,-1);
+
     }
     // Report on test cases:
-    // Input space/Partition: starttime and endtime
-
-    // Block #1: starttime < endtime
-    // - Test Case: setRequiredTestPartition1
-    //   - Input: starttime = 3, endtime = 3, nemployees = 0
-    //   - Expected: WorkSchedule.Hour object remains unchanged
-
-    // Block #2: starttime = endtime
-    // - Test Case: setRequiredTestPartition2
-    //   - Input: starttime = 0, endtime = 0, nemployees = 0
-    //   - Expected: WorkSchedule.Hour object remains unchanged
-
-    // Block #3: starttime > endtime && workingEmployee.length > nemployees
-    // - Test Case: setRequiredTestPartition3
-    //   - Input: starttime = 5, endtime = 3, nemployees = 1
-    //   - Expected: workingEmployees.length = 2
-
-    // Block #4: starttime > endtime && workingEmployee.length < nemployees
-    // - Test Case: setRequiredpart4
-    //   - Input: starttime = 5, endtime = 3, nemployees = 5
-    //   - Expected: No assertion provided
-
-    // Border cases:
-    // - Test Case: setRequiredTestWithEdgeCase
-    //   - Input: nemployees = 0, starttime = 1, endtime = 3
-    //   - Expected: No assertion provided
-
-    // Additional Test Cases:
-    // - Test Case: setRequiredNumberTest
-    //   - Input: starttime = 1, endtime = 1, nemployees = 5
-    //   - Expected: requiredNumber remains unchanged
-
-    // Input space/Partition: currenttime
-
-    // Block #1: there is an hour in the interval currenttime to size - 1 such that the length of workingEmployees
-    // is less than requiredNumber
-    // - Test Case: nextIncompletePartition1
-    //   - Input: currenttime = 3
-    //   - Expected: -1
-
-    // Block #2: there is no hour in the interval currenttime to size - 1 such that the length of workingEmployees
-    // is less than requiredNumber
-    // - Test Case: nextIncompletePartition2
-    //   - Input: currenttime = 9
-    //   - Expected: -1
-
-    // Border cases:
-    // - Test Case: nextIncompleteBorderCase1
-    //   - Input: currenttime = 0
-    //   - Expected: 1
-
-    // - Test Case: nextIncompleteBorderCase2
-    //   - Input: currenttime = 9
-    //   - Expected: -1
-
-    // Found bugs:
-    // - Test Case: setRequiredpart4 and setRequiredTestWithEdgeCase do not have assertions to verify the expected outcomes.
 
 
 

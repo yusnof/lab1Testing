@@ -77,13 +77,14 @@ public class Set {
   //   (a, b) -> a - b;
   public boolean distinctClosed(IntBinaryOperator f) {
     int vi,vj;
+    boolean flag = true;
     for (int i = 0; i < a.size(); i++) {
       for (int j = 0; j < a.size(); j++) {
         vi = a.get(i);
         vj = a.get(j);
-        if (i != j && !(member(f.applyAsInt(vi, vj)) || vi == vj)) return false;
+        if (i != j && !(member(f.applyAsInt(vi, vj)) || vi == vj)) flag = false;
       }
     }
-    return true;
+    return flag;
   }
 }
