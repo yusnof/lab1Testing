@@ -1,0 +1,42 @@
+Task 3.3
+method in Dates: daysInMonth(), method argument: month
+
+Variables in Main:
+      daysBetween
+      someMonth
+      someDay
+      laterMonth
+      laterDay
+
+
+Task 3.4  Finding the bug(s?)
+
+line 37: for (; aMonth < laterMonth; aMonth = aMonth + 1)
+aMonth is never declared which cause an bug in this for loop but the previous which means it starts on another
+month rather then the intented month
+
+line 11: if ((month == 9) || (month == 7) || (month == 6) || (month == 11)) {}
+line 12: return 30;
+This is a bug due to correct months having 30 days are 4, 6, 9 and 11
+
+line 46: daysBetween = laterDayInYear - someDayInYear;
+line 48: daysBetween = daysBetween + laterDay - someDay;
+We recalculate daysBetween based on the input arguments again which is incorrect.
+
+-Days in month return faltuie values and in addition to, the loop is just adding days
+
+    test1. 1 1 1 1
+    //Result equal -31
+
+    test2. 1 1 2 1
+    //result equal 0
+
+    test3.  1 1 3 1
+    //equal 31
+
+    test4 1 1 -1000 2
+    //equal -31
+
+Task 3.6
+
+

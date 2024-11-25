@@ -14,9 +14,9 @@ public class WorkScheduleTest {
     @Test
     void setRequiredTestPartition1(){
         WorkSchedule ws = new WorkSchedule(10);
-        WorkSchedule.Hour excepted = ws.readSchedule(0);
-        ws.setRequiredNumber(3,3,0);
-        WorkSchedule.Hour result = ws.readSchedule(0);
+        WorkSchedule.Hour excepted = ws.readSchedule(4);
+        ws.setRequiredNumber(3,3,5);
+        WorkSchedule.Hour result = ws.readSchedule(4);
         assertSame(excepted, result);
     }
 
@@ -26,7 +26,7 @@ public class WorkScheduleTest {
         WorkSchedule.Hour expected = ws.readSchedule(0);
         ws.setRequiredNumber(1,0,0);
         ws.addWorkingPeriod("je",0,0);
-        ws.addWorkingPeriod("ja",0,0);
+        //ws.addWorkingPeriod("ja",0,0);
         WorkSchedule.Hour result = ws.readSchedule(0);
         assertSame(expected, result);
     }
@@ -34,13 +34,15 @@ public class WorkScheduleTest {
     void setRequiredTestPartition3()
     {
         WorkSchedule ws = new WorkSchedule(10);
-        ws.setRequiredNumber(1,0,5);
+        ws.setRequiredNumber(2,0,5);
         ws.addWorkingPeriod("je",5,3);
         ws.addWorkingPeriod("ja",5,3);
+
         WorkSchedule.Hour hour = ws.readSchedule(4);
-        int result = hour.workingEmployees.length;
+        //hour.workingEmployees = new String[]{"je", "ja"};
+        int actual = hour.workingEmployees.length;
         int expected = 2;
-        assertEquals(expected, result);
+        assertSame(expected, actual);
     }
 
     @Test
@@ -51,6 +53,8 @@ public class WorkScheduleTest {
         ws.addWorkingPeriod("je",5,3);
         ws.addWorkingPeriod("ja",5,3);
         WorkSchedule.Hour hour = ws.readSchedule(2);
+
+        assertSame(0,hour.workingEmployees.length);
     }
 
     @Test
@@ -97,25 +101,6 @@ public class WorkScheduleTest {
         assertEquals(nEmployees, EmployeeRes);
     }
 
-    //B)
-    /*
-    b) nextIncomplete
-requires:
-  currenttime >= 0 and currenttime < size
-ensures:
-  if there is an hour in the interval currenttime to size - 1 such that
-     the length of workingEmployees is less that requiredNumber
-  then
-    returns the time of the hour closest to currenttime such that
-    the length of workingEmployees is less that requiredNumber
-  otherwise
-    returns -1
-  and in either case the schedule is unchanged
-     */
-    //Partition 1: there is an hour in the interval currenttime to size - 1 such that the length of workingEmployees is less that requiredNumber
-    //Partition 2: there is no hour in the interval currenttime to size - 1 such that the length of workingEmployees is less that requiredNumber
-    // Border case1: currenttime = 0
-    // Border case2: currenttime = size - 12""
 
 
     @Test

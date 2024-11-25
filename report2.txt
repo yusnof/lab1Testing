@@ -1,0 +1,50 @@
+
+a) setRequiredNumber
+  Input space/Partition: 0 <= nemployee and  0 <= starttime and  0 <=endtime
+
+  Block #1: starttime < endtime
+    test_m_part1: input: "nemployee = 3, starttime=3, endtime=5", expected: "m(x,y,z) = 3 employess in hour 3 to 5"
+  Block #2: starttime = endtime
+    test_m_part2: input: "nemployee = 1, starttime = 0, endtime = 0 ", expected: "m(x,y,z) = 1 employess in hour 0, so no intervall"
+  Block #3: starttime > endtime && workingEmployee.length > nemployees
+    test_m_part3: input: "nemployee = 2, starttime = 0, endtime = 5 ", expected: "m(x,y,z) = length 2 on workingEmployee"
+  Block #4: starttime > endtime && workingEmployee.length < nemployees
+    test_m_part4: input: "nemployee = 5, starttime = 0, endtime = 5 ", expected: "m(x,y,z) = length of workingEmployee is 0""
+
+  Border cases:
+    test_m_border1: input: "nemployee = 0, starttime=1, endtime=3", expected: "m(x,y,z) = 0 employess in there"
+
+
+  Found bugs: Decrementing the required number of employees will break the method
+
+-----------------------------------------------------------------------
+
+b) nextInComplete
+// Input space/Partition: currenttime
+
+    // Block #1: there is an hour in the interval currenttime to size - 1 such that the length of workingEmployees
+    // is less than requiredNumber
+    // - Test Case: nextIncompletePartition1
+    //   - Input: currenttime = 3
+    //   - Expected: -1
+
+    // Block #2: there is no hour in the interval currenttime to size - 1 such that the length of workingEmployees
+    // is less than requiredNumber
+    // - Test Case: nextIncompletePartition2
+    //   - Input: currenttime = 9
+    //   - Expected: -1
+
+    // Border cases:
+    // - Test Case: nextIncompleteBorderCase1
+    //   - Input: currenttime = 0
+    //   - Expected: 1
+
+    // - Test Case: nextIncompleteBorderCase2
+    //   - Input: currenttime = 9
+    //   - Expected: -1
+
+    // Found bugs:
+    // - Test Case: setRequiredpart4 and setRequiredTestWithEdgeCase do not have assertions to verify the expected outcomes.
+
+
+

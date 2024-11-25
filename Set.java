@@ -55,6 +55,7 @@ public class Set {
     return false;
   }
 
+  //
   public void intersect(Set s) {
     for(int i = 0, j = 0 ; i < a.size() && j < s.a.size();) {
       if (a.get(i).equals(s.a.get(j))){

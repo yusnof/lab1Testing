@@ -1,0 +1,14 @@
+Instert:
+bug invalid case for a is empty
+
+bug for case size less than x
+
+Member:
+
+Intersect:
+
+Disclosed:
+same index comparision bug, so compare the same value on the same index
+
+for loop bug (j= i) it should be j=0 so you compare all elements
+
