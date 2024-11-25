@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class WorkScheduleTest {
     //Partition 1: starttime < endtime
@@ -11,7 +10,7 @@ public class WorkScheduleTest {
 
     // border case when the nemployees == 0.
 
-    //bug:
+    //bug: decrementing the required number of employees will break the method
     @Test
     void setRequiredTestPartition1(){
         WorkSchedule ws = new WorkSchedule(10);
@@ -60,7 +59,21 @@ public class WorkScheduleTest {
         ws.setRequiredNumber(0,1,3);
         WorkSchedule.Hour hour = ws.readSchedule(2);
         //TODO add asserting
+    }
 
+    // the bug in program is: lower the setRequiredNumber, will breake the method which wrong it should be the updated number of requiredNumber
+    @Test
+    void Bug1Test(){
+        WorkSchedule ws = new WorkSchedule(10);
+        //ws.addWorkingPeriod()
+        ws.setRequiredNumber(3,0,5);
+        ws.addWorkingPeriod("je",0,5);
+        ws.addWorkingPeriod("je1",0,5);
+        ws.addWorkingPeriod("je2",0,5);
+        ws.setRequiredNumber(2,0,5);
+        String[] expected = new String[]{"je", "je1"};
+        //this should be wrong to show the bug in the program
+        assertArrayEquals(expected,ws.workingEmployees(0,5));
     }
 
 
