@@ -18,6 +18,7 @@ public static void main (String[] args) {
     int laterMonth, laterDay;
 
     int aMonth;
+
     someMonth = Integer.parseInt(args[0]);
     someDay = Integer.parseInt(args[1]);
 
@@ -43,6 +44,7 @@ public static void main (String[] args) {
                        someMonth + "/" + someDay + " and " +
                        laterMonth + "/" + laterDay + " is: ");
     daysBetween = laterDayInYear - someDayInYear;
+
     daysBetween = daysBetween + laterDay - someDay;
     System.out.println(daysBetween);
 }
