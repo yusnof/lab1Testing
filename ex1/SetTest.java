@@ -1,3 +1,5 @@
+package ex1;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -134,14 +136,14 @@ class SetTest {
         assertTrue(s2.member(0) && s2.member(1) && !s2.member(2));
 /*
         //intersect two empty sets
-        Set s3 = new Set();
-        Set s4 = new Set();
+        ex1.Set s3 = new ex1.Set();
+        ex1.Set s4 = new ex1.Set();
         s3.intersect(s4);
         assertFalse(s3.member(0) && s4.member(0));
 
         //intersect without overlaping elements
-        Set s5 = new Set();
-        Set s6 = new Set();
+        ex1.Set s5 = new ex1.Set();
+        ex1.Set s6 = new ex1.Set();
         s5.insert(0);
         s5.insert(1);
         s5.insert(2);

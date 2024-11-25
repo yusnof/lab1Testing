@@ -1,3 +1,5 @@
+package ex3;
+
 public class DatesImprove {
 
     /* Precondition: month is between 1 and 12, inclusive */
@@ -22,6 +24,9 @@ public class DatesImprove {
         laterMonth = Integer.parseInt(args[2]);
         laterDay = Integer.parseInt(args[3]);
 
+        if(someMonth < 1 || someMonth > 12 || laterMonth < 1 || laterMonth > 12){
+            throw new IllegalArgumentException("Month must be between 1 and 12");
+        }
         /* Used to record what day in the year the first day  */
         /* of someMonth and laterMonth are. */
         int someDayInYear = 0;

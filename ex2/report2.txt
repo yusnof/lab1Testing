@@ -20,7 +20,7 @@ a) setRequiredNumber
 -----------------------------------------------------------------------
 
 b) nextInComplete
-// Input space/Partition: currenttime
+// Input space/Partition: currenttime >= 0
 
     // Block #1: there is an hour in the interval currenttime to size - 1 such that the length of workingEmployees
     // is less than requiredNumber
@@ -45,6 +45,5 @@ b) nextInComplete
 
     // Found bugs:
     // - Test Case: setRequiredpart4 and setRequiredTestWithEdgeCase do not have assertions to verify the expected outcomes.
-
 
 

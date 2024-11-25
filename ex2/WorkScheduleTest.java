@@ -1,3 +1,6 @@
+package ex2;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -87,7 +90,7 @@ public class WorkScheduleTest {
         ws.setRequiredNumber(2,0,5);
         String[] expected = new String[]{"je", "je1"};
         //this should be wrong to show the bug in the program
-        assertArrayEquals(expected,ws.workingEmployees(0,5));
+        Assertions.assertArrayEquals(expected,ws.workingEmployees(0,5));
     }
 
 
@@ -163,7 +166,7 @@ public class WorkScheduleTest {
         assertEquals(working,-1);
 
     }
-    // Report on test cases:
+
 
 
 
