@@ -1,0 +1,11 @@
+    test1. 1 1 1 1
+    //Result: 0
+
+    test2. 1 1 2 1
+    //result: 31
+
+    test3.  1 1 3 1
+    //Result: 62
+
+    test4 1 1 -1000 2
+    //Result: error message, so we added a exception for this case.
